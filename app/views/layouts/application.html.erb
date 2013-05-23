@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Conversations</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div id="site-name"><%= link_to 'Conversations', root_path %></div>
+
+<ul id="navigation">
+  <li><%= link_to 'Register', new_register_path %></li>
+  <li><%= link_to 'Login', login_path %></li>
+  <li><%= link_to 'Logout', logout_path %></li>
+</ul>
+
+<% if alert %>
+  <div id="alert"><%= alert %></div>
+<% end %>
+
+<% if notice %>
+  <div id="notice"><%= notice %></div>
+<% end %>
+
+<%= yield %>
+
+</body>
+</html>
