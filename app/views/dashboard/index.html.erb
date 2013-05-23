@@ -1,2 +1,21 @@
-<h1>Dashboard#index</h1>
-<p>Find me in app/views/dashboard/index.html.erb</p>
+<h1>Dashboard</h1>
+
+<h2>Created</h2>
+
+<% current_user.created_conversations.each do |conversation| %>
+  <div class="conversation">
+    <div class="topic"><%= link_to conversation.topic, conversation %></div>
+    <div class="creator">Created by <%= conversation.creator %></div>
+  </div>
+<% end %>
+
+<h2>Participating</h2>
+
+<% current_user.participated_conversations.each do |conversation| %>
+  <div class="conversation">
+    <div class="topic"><%= link_to conversation.topic, conversation %></div>
+    <div class="creator">Created by <%= conversation.creator %></div>
+  </div>
+<% end %>
+
+

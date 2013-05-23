@@ -10,10 +10,19 @@
 
 <div id="site-name"><%= link_to 'Conversations', root_path %></div>
 
-<ul id="navigation">
+<% if current_user %>
+  <div id="welcome">Logged in as <%= current_user %></div>
+<% end %>
+
+<ul id="user">
   <li><%= link_to 'Register', new_register_path %></li>
   <li><%= link_to 'Login', login_path %></li>
   <li><%= link_to 'Logout', logout_path %></li>
+</ul>
+
+<ul id="navigation">
+  <li><%= link_to 'Conversations', conversations_path %></li>
+  <li><%= link_to 'Users', users_path %></li>
 </ul>
 
 <% if alert %>

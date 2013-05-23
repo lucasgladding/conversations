@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  conversation_id: 
+  participant_id: 
+
+two:
+  conversation_id: 
+  participant_id: 

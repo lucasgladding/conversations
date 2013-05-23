@@ -11,7 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130522234259) do
+ActiveRecord::Schema.define(version: 20130523033420) do
+
+  create_table "conversation_participants", force: true do |t|
+    t.integer  "conversation_id"
+    t.integer  "participant_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "conversation_participants", ["conversation_id"], name: "index_conversation_participants_on_conversation_id"
+  add_index "conversation_participants", ["participant_id"], name: "index_conversation_participants_on_participant_id"
+
+  create_table "conversations", force: true do |t|
+    t.string   "topic"
+    t.integer  "creator_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "conversations", ["creator_id"], name: "index_conversations_on_creator_id"
 
   create_table "users", force: true do |t|
     t.string   "username"

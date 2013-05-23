@@ -7,7 +7,7 @@ class RegisterControllerTest < ActionController::TestCase
   end
 
   test "should create user" do
-    post :create, user: { username: 'aaa', email: 'aaa@example.com', password: 'password' }
+    post :create, user: { email: 'aaa@example.com', password: 'password', password_confirmation: 'password', username: 'aaa' }
     assert_redirected_to root_url
   end
 
