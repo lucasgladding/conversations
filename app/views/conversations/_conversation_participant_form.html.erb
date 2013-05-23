@@ -1,0 +1,8 @@
+<div class="field">
+  <%= f.label :participant_id %>
+  <%= f.collection_select :participant_id, User.order(:username), :id, :username, include_blank: true %>
+</div>
+<div class="actions">
+  <%= f.check_box :_destroy %>
+  <%= f.label :_destroy, 'Remove' %>
+</div>

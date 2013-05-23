@@ -1,3 +1,6 @@
+<% @conversation.conversation_participants.build %>
+<% @conversation.messages.build %>
+
 <%= form_for(@conversation) do |f| %>
   <% if @conversation.errors.any? %>
     <div id="error_explanation">
@@ -16,9 +19,22 @@
     <%= f.text_field :topic %>
   </div>
   <div class="field">
-    <%= f.label :creator %><br>
-    <%= f.collection_select :creator, User.order(:username), :id, :username, include_blank: true %>
+    <%= f.label :creator_id %><br>
+    <%= f.collection_select :creator_id, User.order(:username), :id, :username, include_blank: true %>
   </div>
+
+  <h2>Participants</h2>
+
+  <%= f.fields_for :conversation_participants do |builder| %>
+    <%= render 'conversation_participant_form', :f => builder %>
+  <% end %>
+
+  <h2>Messages</h2>
+
+  <%= f.fields_for :messages do |builder| %>
+    <%= render 'message_form', :f => builder %>
+  <% end %>
+
   <div class="actions">
     <%= f.submit %>
   </div>

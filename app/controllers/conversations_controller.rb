@@ -4,7 +4,7 @@ class ConversationsController < ApplicationController
   # GET /conversations
   # GET /conversations.json
   def index
-    @created_conversations = current_user.created_conversations
+    @conversations = Conversation.order(:topic)
   end
 
   # GET /conversations/1
@@ -69,6 +69,9 @@ class ConversationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def conversation_params
-      params.require(:conversation).permit(:topic, :creator_id)
+      params.require(:conversation).permit(:topic, :creator_id, 
+        conversation_participants_attributes: [:id, :participant_id, :_destroy],
+        messages_attributes: [:id, :user_id, :content, :_destroy]
+        )
     end
 end

@@ -1,4 +1,6 @@
 Conversations::Application.routes.draw do
+  resources :messages
+
   resources :conversations
 
   get 'dashboard' => 'dashboard#index', as: 'dashboard'

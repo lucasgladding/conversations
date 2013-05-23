@@ -8,5 +8,22 @@
   <%= @conversation.creator %>
 </p>
 
+<h2>Participants</h2>
+
+<ul>
+  <% @conversation.conversation_participants.each do |cp| %>
+    <li><%= cp.participant %></li>
+  <% end %>
+</ul>
+
+<h2>Messages</h2>
+
+<ul>
+  <% @conversation.messages.each do |message| %>
+    <li><%= message.content %></li>
+  <% end %>
+</ul>
+
+
 <%= link_to 'Edit', edit_conversation_path(@conversation) %> |
 <%= link_to 'Back', conversations_path %>
