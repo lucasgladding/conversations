@@ -1,15 +1,15 @@
 <h1>Created</h1>
 
 <ul>
-  <% current_user.conversations_as_creator.each do |conversation| %>
-    <li><%= link_to conversation.topic, edit_dashboard_path(conversation) %></li>
+  <% current_user.created_conversations.each do |conversation| %>
+    <li><%= link_to conversation, edit_dashboard_path(conversation) %></li>
   <% end %>
 </ul>
 
 <h1>Participated</h1>
 
 <ul>
-  <% current_user.conversations_as_participant.each do |conversation| %>
-    <li><%= link_to conversation.topic, edit_dashboard_path(conversation) %></li>
+  <% current_user.participated_conversations.each do |conversation| %>
+    <li><%= link_to conversation, edit_dashboard_path(conversation) %></li>
   <% end %>
 </ul>
