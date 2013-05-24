@@ -1,4 +1,4 @@
-class MessagesController < ApplicationController
+class MessagesController < AdminController
   before_action :set_message, only: [:show, :edit, :update, :destroy]
 
   before_filter :authorize_admin

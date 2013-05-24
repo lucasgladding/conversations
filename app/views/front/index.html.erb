@@ -1,0 +1,9 @@
+<h1>Conversations</h1>
+
+<ul>
+  <% current_user.conversation_participants.each do |conversation_participant| %>
+    <%= render 'front/conversation_participant', conversation_participant: conversation_participant %>
+  <% end %>
+</ul>
+
+<%= link_to 'Start Conversation', new_front_path %>

@@ -10,12 +10,20 @@ Conversation.delete_all
 Message.delete_all
 User.delete_all
 
+users = []
+
 user_admin = User.create(username: 'admin', email: 'admin@example.com', password: 'password', password_confirmation: 'password', administrator: true)
+users << user_admin
+
+usernames = %w{ lucas deanne }
+usernames.each do |username|
+  users << User.create(username: username, email: username + '@example.com', password: 'password', password_confirmation: 'password', administrator: false)
+end
 
 conversation_welcome = Conversation.create(topic: 'Welcome', creator: user_admin)
 
-2.times do
-  ConversationParticipant.create(conversation: conversation_welcome, participant: user_admin, has_unread_messages: true)
+users.each do |user|
+  ConversationParticipant.create(conversation: conversation_welcome, participant: user, has_unread_messages: true)
 end
 
 10.times do

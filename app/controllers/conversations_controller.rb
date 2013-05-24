@@ -1,4 +1,4 @@
-class ConversationsController < ApplicationController
+class ConversationsController < AdminController
   before_action :set_conversation, only: [:show, :edit, :update, :destroy]
 
   before_filter :authorize_admin

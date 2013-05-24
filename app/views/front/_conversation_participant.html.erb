@@ -1,0 +1,6 @@
+<li class="unread-<%= conversation_participant.has_unread_messages %>">
+  <div class="topic"><%= link_to conversation_participant.conversation, edit_front_path(conversation_participant.conversation) %></div>
+  <div class="creator">Creator: <%= conversation_participant.conversation.creator %></div>
+  <div class="participants">Participants: <%= conversation_participant.conversation.participants_usernames %></div>
+  <div class="unread">Unread: <%= conversation_participant.has_unread_messages %></div>
+</li>

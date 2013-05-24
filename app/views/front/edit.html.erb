@@ -1,0 +1,38 @@
+<%= form_for @conversation, url: front_path(@conversation) do |f| %>
+  <div class="field">
+    <%= f.label :topic %><br>
+    <%= f.text_field :topic %>
+  </div>
+  <div class="field">
+    <label>Creator</label><br>
+    <%= @conversation.creator %>
+  </div>
+  <div class="field">
+    <label>Participants</label><br>
+    <%= @conversation.participants_usernames %>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Update' %>
+  </div>
+<% end %>
+
+
+<ul id="messages">
+  <% @conversation.messages.each do |message| %>
+    <li>
+      <div class="content"><%= message.content %></div>
+      <div class="time"><%= message.created_at %></div>
+    </li>
+  <% end %>
+</ul>
+
+
+<%= form_for @message, url: create_message_front_path(@conversation) do |f| %>
+  <div class="field">
+    <%= f.label :content, 'Message' %><br>
+    <%= f.text_area :content %>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Send' %>
+  </div>
+<% end %>

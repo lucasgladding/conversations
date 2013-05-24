@@ -11,8 +11,8 @@
 <h2>Participants</h2>
 
 <ul>
-  <% @conversation.conversation_participants.each do |cp| %>
-    <li><%= cp.participant %></li>
+  <% @conversation.conversation_participants.each do |conversation_participant| %>
+    <li><%= conversation_participant.participant %></li>
   <% end %>
 </ul>
 

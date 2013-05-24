@@ -15,12 +15,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def authorize_admin
-    unless current_user && current_user.administrator
-      redirect_to login_url, notice: 'Please log in as an administrator.'
-    end
-  end
-
   def current_user
     @current_user = User.find_by_auth_token(cookies[:auth_token])
   end

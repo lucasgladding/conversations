@@ -1,0 +1,15 @@
+<%= form_for @conversation, url: front_index_path do |f| %>
+
+<div class="field">
+  <%= f.label :topic %><br>
+  <%= f.text_field :topic %>
+</div>
+<div class="field">
+  <%= label_tag :participant %><br>
+  <%= text_field_tag :participant %>
+</div>
+<div class="action">
+  <%= f.submit 'Start Conversation' %>
+</div>
+
+<% end %>

@@ -2,11 +2,16 @@ Conversations::Application.routes.draw do
   get 'login' => 'login#new', as: 'login'
   get 'logout' => 'login#destroy', as: 'logout'
 
-  resources :conversations
-  resources :dashboard
+  resources :front do
+    member do
+      post 'create_message'
+    end
+  end
   resources :login
-  resources :messages
   resources :register
+
+  resources :conversations
+  resources :messages
   resources :users
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -14,7 +19,7 @@ Conversations::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-  root 'dashboard#index'
+  root 'front#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

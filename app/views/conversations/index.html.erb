@@ -17,7 +17,7 @@
       <tr>
         <td><%= conversation.topic %></td>
         <td><%= conversation.creator %></td>
-        <td><%= conversation.participant_usernames %></td>
+        <td><%= conversation.participants_usernames %></td>
         <td><%= link_to 'Show', conversation %></td>
         <td><%= link_to 'Edit', edit_conversation_path(conversation) %></td>
         <td><%= link_to 'Destroy', conversation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
