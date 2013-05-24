@@ -11,7 +11,13 @@ class ApplicationController < ActionController::Base
 
   def authorize
     unless current_user
-      redirect_to login_url
+      redirect_to login_url, notice: 'Please log in.'
+    end
+  end
+
+  def authorize_admin
+    unless current_user && current_user.administrator
+      redirect_to login_url, notice: 'Please log in as an administrator.'
     end
   end
 

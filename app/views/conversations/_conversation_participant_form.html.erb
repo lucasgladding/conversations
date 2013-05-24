@@ -2,6 +2,10 @@
   <%= f.label :participant_id %>
   <%= f.collection_select :participant_id, User.order(:username), :id, :username, include_blank: true %>
 </div>
+<div class="field">
+  <%= f.check_box :has_unread_messages %>
+  <%= f.label :has_unread_messages %>
+</div>
 <div class="actions">
   <%= f.check_box :_destroy %>
   <%= f.label :_destroy, 'Remove' %>

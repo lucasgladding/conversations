@@ -2,10 +2,10 @@ class Conversation < ActiveRecord::Base
   belongs_to :creator, class_name: 'User'
 
   # use ConversationParticipant to create association between conversations and participants
-  has_many :conversation_participants
+  has_many :conversation_participants, dependent: :destroy
   has_many :participants, class_name: 'User', through: :conversation_participants
 
-  has_many :messages
+  has_many :messages, dependent: :destroy
 
   MAX_PARTICIPANTS = 2
 

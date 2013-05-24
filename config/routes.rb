@@ -1,13 +1,11 @@
 Conversations::Application.routes.draw do
-  resources :messages
-
-  resources :conversations
-
-  get 'dashboard' => 'dashboard#index', as: 'dashboard'
   get 'login' => 'login#new', as: 'login'
   get 'logout' => 'login#destroy', as: 'logout'
 
+  resources :conversations
+  resources :dashboard
   resources :login
+  resources :messages
   resources :register
   resources :users
 

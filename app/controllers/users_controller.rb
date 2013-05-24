@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
+  before_filter :authorize_admin
+
   # GET /users
   # GET /users.json
   def index
@@ -69,6 +71,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:username, :email, :password, :password_confirmation, :auth_token)
+      params.require(:user).permit(:username, :email, :password, :password_confirmation, :auth_token, :administrator)
     end
 end

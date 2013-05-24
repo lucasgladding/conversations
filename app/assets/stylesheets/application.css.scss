@@ -12,6 +12,13 @@
  *= require_tree .
  */
 
+#site-name {
+  font-size: 2em;
+  font-weight: bold;
+  line-height: 1em;
+  margin-bottom: 0.5em;
+}
+
 ul.horizontal {
   overflow: hidden;
   padding-left: 0;
@@ -27,7 +34,7 @@ ul.horizontal {
 }
 
 #user, #navigation {
-  background: #EEE;
+  background: #DDD;
   
   a {
     border-right: 1px solid #FFF;

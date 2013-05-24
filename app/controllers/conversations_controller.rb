@@ -1,6 +1,8 @@
 class ConversationsController < ApplicationController
   before_action :set_conversation, only: [:show, :edit, :update, :destroy]
 
+  before_filter :authorize_admin
+
   # GET /conversations
   # GET /conversations.json
   def index
@@ -70,7 +72,7 @@ class ConversationsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def conversation_params
       params.require(:conversation).permit(:topic, :creator_id, 
-        conversation_participants_attributes: [:id, :participant_id, :_destroy],
+        conversation_participants_attributes: [:id, :participant_id, :has_unread_messages, :_destroy],
         messages_attributes: [:id, :user_id, :content, :_destroy]
         )
     end

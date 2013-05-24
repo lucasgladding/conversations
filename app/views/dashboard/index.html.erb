@@ -1,20 +1,15 @@
-<h1>Dashboard</h1>
-
-
-<h2>Created</h2>
+<h1>Created</h1>
 
 <ul>
   <% current_user.conversations_as_creator.each do |conversation| %>
-    <li><%= link_to conversation.topic, conversation %></li>
+    <li><%= link_to conversation.topic, edit_dashboard_path(conversation) %></li>
   <% end %>
 </ul>
 
-
-<h2>Participated</h2>
+<h1>Participated</h1>
 
 <ul>
   <% current_user.conversations_as_participant.each do |conversation| %>
-    <li><%= link_to conversation.topic, conversation %></li>
+    <li><%= link_to conversation.topic, edit_dashboard_path(conversation) %></li>
   <% end %>
 </ul>
-

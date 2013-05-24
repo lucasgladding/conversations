@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130523143524) do
+ActiveRecord::Schema.define(version: 20130523201309) do
 
   create_table "conversation_participants", force: true do |t|
     t.integer  "conversation_id"
     t.integer  "participant_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "has_unread_messages"
   end
 
   add_index "conversation_participants", ["conversation_id"], name: "index_conversation_participants_on_conversation_id"
@@ -50,6 +51,7 @@ ActiveRecord::Schema.define(version: 20130523143524) do
     t.string   "auth_token"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "administrator"
   end
 
 end
