@@ -1,3 +1,18 @@
 // Place all the styles related to the front controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#conversations, #messages {
+  border: 1px solid #DDD;
+  padding-left: 0;
+  
+  li {
+    border-bottom: 1px solid #DDD;
+    list-style: none;
+    padding: 10px 10px;
+  }
+  
+  .unread-true {
+    background: #EEE;
+  }
+}

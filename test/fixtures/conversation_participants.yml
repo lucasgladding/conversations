@@ -1,9 +1,26 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  conversation_id: 
-  participant_id: 
+  conversation: one
+  participant: admin
+  has_unread_messages: true
 
 two:
-  conversation_id: 
-  participant_id: 
+  conversation: one
+  participant: lucas
+  has_unread_messages: true
+
+three:
+  conversation: two
+  participant: admin
+  has_unread_messages: false
+
+four:
+  conversation: two
+  participant: lucas
+  has_unread_messages: false
+
+five:
+  conversation: three
+  participant: lucas
+  has_unread_messages: false

@@ -5,7 +5,7 @@ class Conversation < ActiveRecord::Base
   has_many :conversation_participants, dependent: :destroy
   has_many :participants, class_name: 'User', through: :conversation_participants
 
-  has_many :messages, dependent: :destroy, order: 'created_at ASC'
+  has_many :messages, -> { order(created_at: :desc) }, dependent: :destroy
 
   accepts_nested_attributes_for :conversation_participants,
     allow_destroy: true,
@@ -16,7 +16,11 @@ class Conversation < ActiveRecord::Base
     reject_if:     proc { |attributes| attributes[:content].blank? }
 
   def to_s
-    topic
+    if topic.blank?
+      return 'untitled'
+    else
+      return topic
+    end
   end
 
   def participants_usernames

@@ -1,6 +1,6 @@
 <h1>Conversations</h1>
 
-<ul>
+<ul id="conversations">
   <% current_user.conversation_participants.each do |conversation_participant| %>
     <%= render 'front/conversation_participant', conversation_participant: conversation_participant %>
   <% end %>

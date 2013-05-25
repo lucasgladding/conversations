@@ -1,9 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  topic: MyString
-  creator_id: 
+  topic: Topic
+  creator: admin
 
 two:
-  topic: MyString
-  creator_id: 
+  topic: Topic
+  creator: lucas
+
+three:
+  topic: Topic
+  creator: lucas

@@ -2,6 +2,7 @@ class FrontController < ApplicationController
   before_action :set_conversation, only: [:edit, :update, :create_message]
 
   before_filter :authorize_participant, only: [:edit, :update, :create_message]
+  before_filter :authorize_creator,     only: [:update]
 
   def index
   end
@@ -60,8 +61,15 @@ class FrontController < ApplicationController
 
   def authorize_participant
     conversation = Conversation.find(params[:id])
-    unless conversation.has_participant?(current_user)
+    unless conversation.creator == current_user || conversation.has_participant?(current_user)
       redirect_to front_index_url, alert: 'You are not participating in this conversation.'
+    end
+  end
+
+  def authorize_creator
+    conversation = Conversation.find(params[:id])
+    unless conversation.creator == current_user
+      redirect_to front_index_url, alert: 'You are not the conversation creator.'
     end
   end
 

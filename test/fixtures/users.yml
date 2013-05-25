@@ -6,3 +6,10 @@ admin:
   password_digest: <%= BCrypt::Password.create('password') %>
   auth_token: 1234
   administrator: true
+
+lucas:
+  username: lucas
+  email: lucas@example.com
+  password_digest: <%= BCrypt::Password.create('password') %>
+  auth_token: 1234
+  administrator: false

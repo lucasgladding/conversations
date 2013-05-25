@@ -1,12 +1,14 @@
 <%= form_for @conversation, url: front_index_path do |f| %>
 
+<% @users = User.order(:username) %>
+
 <div class="field">
   <%= f.label :topic %><br>
   <%= f.text_field :topic %>
 </div>
 <div class="field">
   <%= label_tag :participant %><br>
-  <%= text_field_tag :participant %>
+  <%= select_tag :participant, options_from_collection_for_select(@users, :username, :username), include_blank: true %>
 </div>
 <div class="action">
   <%= f.submit 'Start Conversation' %>
